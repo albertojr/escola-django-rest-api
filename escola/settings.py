@@ -9,6 +9,8 @@ from decouple import config
     Token:
     c4495f64785e06ca7a0ee960d01281047c9d9b85
 
+    token user:
+    63d1b57d9f775b103c55eafd1e264db007cbf26e
 """
 
 

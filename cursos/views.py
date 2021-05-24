@@ -8,8 +8,11 @@ from rest_framework.decorators import action
 from rest_framework.response import Response, responses
 from rest_framework import mixins
 
+from rest_framework import permissions
+
 from .models import Curso, Avaliacao
 from .serializers import CursoSerializer, AvaliacaoSerializer
+from .permissions import EhSuperUser
 
 """
     API Versão 1
@@ -57,6 +60,10 @@ class AvaliacaoAPIView(generics.RetrieveUpdateDestroyAPIView):
 """
 
 class CursoViewSet(viewsets.ModelViewSet):
+    #permissions do django models
+    permission_classes = (
+        EhSuperUser,
+        permissions.DjangoModelPermissions, )
     queryset = Curso.objects.all()
     serializer_class = CursoSerializer
     
